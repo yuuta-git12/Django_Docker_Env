@@ -37,10 +37,17 @@ docker compose -f <指定するdokcer-composeのファイル> run app django-adm
 例：docker compose -f docker-compose.yml run app django-admin startproject djangopj .
 
 ```
+### すでにプロジェクトがある場合
+```
+docker compose -f <指定するdokcer-composeのファイル> build
+```
+
+### settings.pyのDATABASESを変更
+- memo_settings.mdの内容を参考に/<プロジェクト名>/settings.pyの内容を変更
+
 ### 開発環境の場合
 - 起動
-  ~~`docker compose -f docker-compose.yml up -d    `~~
-  `docker compose -p fish_log up -d`
+  `docker compose -f docker-compose.yml up -d`
 - 停止
   `docker stop fish_log`
   `docker stop postgres`
