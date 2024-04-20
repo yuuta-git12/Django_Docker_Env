@@ -1,8 +1,7 @@
 # Djangoで作成する自作アプリ
 ## 説明
-- Pythonフレームワークの勉強も兼ねた自作アプリ「釣りログ」
+- PythonフレームワークのDjangoの開発環境
 - 開発環境はdockerコンテナを使用
-- メイン開発マシンはMac M2Pro
 
 ## ディレクトリ構成
 ```
@@ -30,10 +29,18 @@
 
 
 ## コンテナの起動・停止
+### Docker imageの作成(初回)
+- プロジェクトを新規作成する際、プロジェクト名と作成するディレクトリを指定して以下のコマンドを実行
+```
+docker compose -f <指定するdokcer-composeのファイル> run app django-admin startproject <プロジェクト名> <プロジェクトを作成するディレクトリ>
+
+例：docker compose -f docker-compose.yml run app django-admin startproject djangopj .
+
+```
 ### 開発環境の場合
 - 起動
   ~~`docker compose -f docker-compose.yml up -d    `~~
-  `docker compose -p fish_log up -d`(fish_logはプロジェクト名)
+  `docker compose -p fish_log up -d`
 - 停止
   `docker stop fish_log`
   `docker stop postgres`

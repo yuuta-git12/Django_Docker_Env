@@ -34,7 +34,7 @@ services:
       - .env
   app:
     # コンテナ名をappに設定
-    container_name: fish_log
+    container_name: app
     # DjangoのDockerfileをビルドする
     build:
       # ビルドコンテキストはカレントディレクトリ

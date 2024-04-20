@@ -1,4 +1,6 @@
 #!/bin/sh
+
+# オプション --noinput：非対話モードで実行
 python manage.py makemigrations --noinput
 python manage.py migrate --noinput
 python manage.py collectstatic --noinput
@@ -10,5 +12,5 @@ else
     # gunicornを起動させる時はプロジェクト名を指定します
     # 今回はdjangopjにします
     # gunicorn djangopj.wsgi:application --bind 0.0.0.0:8000
-    gunicorn fish_log.wsgi:application --bind 0.0.0.0:8000
+    gunicorn djangopj.wsgi:application --bind 0.0.0.0:8000
 fi
