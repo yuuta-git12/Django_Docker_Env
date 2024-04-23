@@ -18,8 +18,11 @@ services:
     platform: linux/x86_64
     # DBのボリュームを指定
     # ローカルの/data/dbをコンテナの/var/lib/postgresql/dataにマウントする
+    # ./scriptディレクトをdocker-entrypoint-initdb.dにマウント(このディレクトリにsqlファイルを配置するだけでSQLを実行してくれる)
     volumes:
       - db_data:/var/lib/postgresql/data
+      # 初回立ち上げ時にロールとDB作成
+      - ./script:/docker-entrypoint-initdb.d
     ports:
       - "5432:5432"
     # ヘルスチェック
